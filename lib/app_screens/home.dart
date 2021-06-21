@@ -27,6 +27,9 @@ class Home extends StatelessWidget{
                 secondText("From Jaipur to Goa"),
               ],
             ),
+            FlightImageAsset(),
+            // Container(child: Image(image: AssetImage('images/ticket.png'),),)
+            FlightBookButton()
           ],
         ),
       ),
@@ -64,5 +67,50 @@ class Home extends StatelessWidget{
       ),
     );
   }
+}
 
+class FlightImageAsset extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context){
+    AssetImage assetImage = AssetImage('images/ticket.png');
+    Image image = Image(image: assetImage);
+    return Container(child: image,);
+  }
+}
+
+class FlightBookButton extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange),
+            elevation: MaterialStateProperty.all(6.0)),
+        child: Text(
+            "Book your flight",
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.white,
+          fontFamily: "Raleway",
+          fontWeight: FontWeight.w700
+          ),
+        ),
+        onPressed: (){
+          bookFlight(context);
+        },
+      )
+    );
+  }
+
+  void bookFlight(BuildContext context){
+    var alertDialog = AlertDialog(
+      title: Text("Flight Booked"),
+      content: Text("Have a pleasant flight"),
+    );
+    showDialog(context: context, builder: (BuildContext context){
+      return alertDialog;
+    });
+  }
 }
