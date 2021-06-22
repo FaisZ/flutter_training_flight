@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'second_screen.dart';
 
 class Home extends StatelessWidget{
 
@@ -29,7 +30,15 @@ class Home extends StatelessWidget{
             ),
             FlightImageAsset(),
             // Container(child: Image(image: AssetImage('images/ticket.png'),),)
-            FlightBookButton()
+            FlightBookButton(),
+            ElevatedButton(
+              child: Text("Next Screen"),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return SecondScreen();
+                }));
+              },
+            )
           ],
         ),
       ),
