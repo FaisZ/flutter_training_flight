@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'second_screen.dart';
+import 'list_screen.dart';
 
 class Home extends StatelessWidget{
 
@@ -36,6 +37,14 @@ class Home extends StatelessWidget{
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return SecondScreen();
+                }));
+              },
+            ),
+            ElevatedButton(
+              child: Text("List Screen"),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return ListScreen();
                 }));
               },
             )
