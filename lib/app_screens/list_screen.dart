@@ -22,7 +22,8 @@ class ListScreen extends StatelessWidget {
 
   void showSnackBar(BuildContext context, String item){
     var snackBar = SnackBar(content: Text("You just tapped $item"));
-    Scaffold.of(context).showSnackBar(snackBar);
+    //Scaffold.of(context).showSnackBar(snackBar);
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   List<String> getListElements(){
