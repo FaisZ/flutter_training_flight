@@ -10,7 +10,19 @@ class ListScreen extends StatelessWidget {
         title: Text("Basic List View"),
       ),
       body: get2ndListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          print("FAB clicked");
+        },
+        child: Icon(Icons.add),
+        tooltip: "Add one more item",
+      ),
     );
+  }
+
+  void showSnackBar(BuildContext context, String item){
+    var snackBar = SnackBar(content: Text("You just tapped $item"));
+    Scaffold.of(context).showSnackBar(snackBar);
   }
 
   List<String> getListElements(){
@@ -27,6 +39,7 @@ class ListScreen extends StatelessWidget {
           title: Text(listItems[index]),
           onTap: (){
             print('${listItems[index]} was tapped');
+            showSnackBar(context, listItems[index]);
           },
         );
       })
