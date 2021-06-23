@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:css_colors/css_colors.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key key}) : super(key: key);
@@ -6,6 +7,7 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: CSSColors.orange,
       child: Column(
         children: [
           Text("This is the second screen"),
